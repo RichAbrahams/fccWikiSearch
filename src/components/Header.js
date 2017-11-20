@@ -1,12 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import HeaderWrapper from '../styledComponents/HeaderWrapper';
 
 const Header = () => (
   <HeaderWrapper>
-    <h1>
-      Recipe Box
-    </h1>
+    <h3>
+      Wikepedia Api Search
+    </h3>
   </HeaderWrapper>
 );
 

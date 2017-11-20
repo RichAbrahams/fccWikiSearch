@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import recipes from './recipesReducer';
+import search from './searchReducer';
 const rootReducer = combineReducers({
-  recipes,
+  search,
   form: formReducer,
 });
 

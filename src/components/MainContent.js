@@ -1,25 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MainWrapper from '../styledComponents/MainWrapper';
-import RecipeList from './RecipeList';
-import EditRecipe from './EditRecipe';
-import DeleteRecipe from './DeleteRecipe';
-import AddRecipe from './AddRecipe';
+import SearchBox from './SearchBox';
+import Results from './Results';
 
 const MainContent = (props) => (
   <MainWrapper>
-    {props.edit !== null && <EditRecipe {...props} />}
-    {props.delete !== null && <DeleteRecipe {...props} />}
-    {props.add !== null && <AddRecipe {...props} />}
-    {(props.edit === null && props.add === null && props.delete === null) && <RecipeList {...props} /> }
+    <SearchBox onSubmit={(e) => props.search(e)} connectError={props.error} />
+    <Results {...props} />
   </MainWrapper>
 );
 
 MainContent.propTypes = {
-  recipes: PropTypes.array,
-  edit: PropTypes.number,
-  delete: PropTypes.number,
-  add: PropTypes.bool,
+  search: PropTypes.func,
 };
 
 export default MainContent;

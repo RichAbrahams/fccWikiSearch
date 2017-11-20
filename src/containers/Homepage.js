@@ -10,10 +10,6 @@ import Footer from '../components/Footer';
 import Container from '../styledComponents/Container';
 
 export class Home extends Component {
-  componentWillMount() {
-    this.props.loadData();
-  }
-
   render() {
     return (
       <Container>
@@ -26,25 +22,13 @@ export class Home extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  recipes: selectors.selectRecipes(),
-  edit: selectors.selectEdit(),
-  add: selectors.selectAdd(),
-  delete: selectors.selectDelete(),
-  recipeToEdit: selectors.selectRecipeToEdit(),
-  recipeToDelete: selectors.selectRecipeToDelete(),
-  expanded: selectors.selectExpanded(),
+  results: selectors.selectResults(),
+  error: selectors.selectError(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    sendAddRecipe: (payload) => dispatch(actions.sendAddRecipe(payload)),
-    sendEditRecipe: (payload) => dispatch(actions.sendEditRecipe(payload)),
-    sendDeleteRecipe: (payload) => dispatch(actions.sendDeleteRecipe(payload)),
-    editRecipe: (payload) => dispatch(actions.editRecipe(payload)),
-    deleteRecipe: (payload) => dispatch(actions.deleteRecipe(payload)),
-    addRecipe: (payload) => dispatch(actions.addRecipe(payload)),
-    modifyExpanded: (payload) => dispatch(actions.modifyExpanded(payload)),
-    loadData: (payload) => dispatch(actions.loadData(payload)),
+    search: (payload) => dispatch(actions.search(payload)),
   };
 }
 
